@@ -9,12 +9,8 @@ export const Body = (props) => {
     </h1>
     {(props.cats.length == 0)?<h2>"YOU DESTROYED ALL THE CATS!!"</h2>:""}
     {props.cats.map((cat,i)=>{
-      return <div key={i}>
-      {[ 
-      <h3 >Hi!</h3>,
-      <Bobody cat={cat} onDel ={props.onDel}/>
-      ]}
-      </div>
+      // just in case of many elements to return , return GUID
+      return  <Bobody key={i} cat={cat} onDel ={props.onDel}/> ;
     })}
     </div>
   );

@@ -7,8 +7,7 @@ import React,{useState} from 'react'
 import {
   BrowserRouter as Router,
   Route,
-  Routes,
-  Link
+  Switch
   // etc.
 } from "react-router-dom"; 
 
@@ -39,8 +38,9 @@ function App() {
     <>
     <Router>
       <Header title='Sending a title via props'/>
-      <Routes>
-        <Route path="/" render={()=>{
+      <Switch>
+        {/* <Route path="/" render={()=>{  else if u search for '/About' it will go for this one since '/' matches*/}
+        <Route exact path="/" render={()=>{
           return(
           <>
            <Body cont='Say Hello Santa' cats={cats} onDel={onDel}/>
@@ -49,10 +49,10 @@ function App() {
           )
         }}>
         </Route>
-        <Route path='/Link'>
-          <Link/>
+        <Route exact path='/About'>
+          <About/>
         </Route>
-      </Routes>
+      </Switch>
     </Router>
     </>
   );
